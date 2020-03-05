@@ -12,11 +12,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/wamp/www/call_center/db/Parser.php</file>
-            <file>file:/D:/wamp/www/call_center/sucursales/Sucursales.css</file>
-            <file>file:/D:/wamp/www/call_center/sucursales/Sucursales.html</file>
+            <file>file:/D:/wamp/www/call_center/entidades/Entidades.class.php</file>
+            <file>file:/D:/wamp/www/call_center/instituciones/Instituciones.js</file>
+            <file>file:/D:/wamp/www/call_center/call_center/CallCenter.css</file>
+            <file>file:/D:/wamp/www/call_center/call_center/CallCenter.html</file>
             <file>file:/D:/wamp/www/call_center/json/menu.json</file>
-            <file>file:/D:/wamp/www/call_center/sucursales/Sucursales.js</file>
+            <file>file:/D:/wamp/www/call_center/call_center/CallCenter.class.php</file>
+            <file>file:/D:/wamp/www/call_center/instituciones/Instituciones.class.php</file>
+            <file>file:/D:/wamp/www/call_center/call_center/CallCenter.js</file>
+            <file>file:/D:/wamp/www/call_center/entidades/Entidades.js</file>
         </group>
     </open-files>
 </project-private>

@@ -1,7 +1,7 @@
 <!-- begin: headers -->   
     <head>  
-        <link rel="stylesheet" type="text/css" href="call_center/CallCenter.css?_=5555555555555" />  
-        <script type="text/javascript" src="call_center/CallCenter.js?_=5555555555555" ></script>  
+        <link rel="stylesheet" type="text/css" href="call_center/CallCenter.css?_=454545" />  
+        <script type="text/javascript" src="call_center/CallCenter.js?_=45454" ></script>  
     </head>  
 <!-- end:   headers -->
 
@@ -9,12 +9,57 @@
 <!-- begin: body -->
 
 <div class="filters">
-    <table >
-        
+    <table border="0" style="margin: 10 auto;width: auto;border:solid gray 1px">
+        <tr><th colspan="2" class="titulo">Filtros</th></tr>
+        <tr>
+            <td class="filter_label"><input type="text" id="buscar_institucion" size="30" placeholder="Buscar Instituci&oacute;n"></td>
+            <td>
+                <select class="select_result" id="instituciones"></select> 
+            </td>            
+        </tr>
+        <tr>
+            <td class="filter_label"><input type="text" id="buscar_personas" size="30" placeholder="Buscar Personas"></td>
+            <td>
+                <select class="select_result" id="personas"></select> 
+            </td>            
+        </tr>
     </table>
 </div>
 
-<div class="content">
-    
+<div class="area_carga">
+    <table border="0" style="margin: 0 auto;width:50%;border:solid gray 1px">
+        <tr>
+            <td>Obs:</td>
+            <td colspan="2"><textarea id="obs_per" rows="3" cols="50"></textarea></td>
+        </tr>
+        <tr>
+            <td>Respuesta:</td>
+            <td  colspan="2"><textarea id="obs_user" rows="3" cols="50"></textarea></td>
+        </tr>
+        <tr>
+            <td>Nivel Urgencia:</td>
+            <td>
+                <select style="width: 100px;height: 22px">
+                    <option value="Bajo" style="background-color: yellow">Bajo</option>
+                    <option value="Medio" style="background-color: orange">Medio</option>                    
+                    <option value="Urgente" style="background-color: orangered">Urgente</option>
+                    <option value="Trivial" style="background-color: lightskyblue">Trivial</option>
+                </select>
+            </td>
+            <td rowspan="2" style="vertical-align: middle;width:50%">
+                  <input type="button" value="Registrar">  
+              </td>
+        </tr>
+        <tr>
+            <td>Estado:</td> 
+            <td>
+                <select style="width: 100px;height: 22px">                     
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="En Proceso">En Proceso</option>  
+                    <option value="Pendiente">Cerrado</option>
+                </select>
+            </td>
+        </tr>
+    </table>
 </div>
 <!-- end:   body -->

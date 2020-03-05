@@ -1,0 +1,171 @@
+<!-- begin: headers -->   
+    <head>  
+        <link rel="stylesheet" type="text/css" href="personas/Personas.css?_=0dddddddddddddddddddd" />      
+        <link rel="stylesheet" type="text/css" href="js/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="js/DataTables/Responsive-2.2.2/css/responsive.dataTables.min.css">         
+        <link rel="stylesheet" type="text/css" href="js/DataTables/Responsive-2.2.2/css/responsive.bootstrap4.min.css"/>         
+    </head>  
+<!-- end:   headers -->
+
+<!-- begin: insert_edit_form -->     
+<div class="form" id="form_personas"></div>
+<!-- end:   insert_edit_form -->
+
+<!-- begin: data_header -->
+<div class="list_container">      
+    <table id="personas"  border="1" class="display responsive nowrap db_tablename"  >
+        <thead>
+            <tr>
+                <th>Codigo Persona</th><th>CI/RUC</th><th>Nombre</th><th>Tel</th><th>Fecha Nac</th><th>Ciudad</th><th>Ocupacion</th><th></th>
+            </tr>
+        </thead>
+
+<!-- end:   data_header -->
+
+
+<!-- begin: data_line -->     
+    <tr> <td>{cod_per}</td> <td>{ci_ruc}</td> <td>{nombre}</td> <td>{tel}</td> <td>{fecha_nac}</td> <td>{ciudad}</td> <td>{ocupacion}</td> <td class="itemc"><img class="edit" src="img/edit.png" onclick=editUI("{cod_per}") ></td>  </tr>
+<!-- end:   data_line -->
+
+
+<!-- begin: data_foot -->     
+
+        <tfoot>
+             
+        </tfoot>
+    </table> 
+</div>
+ 
+<!-- end:   data_foot -->
+
+<!-- begin: script -->      
+    <script type="text/javascript" src="js/jquery-3.3.1.js" ></script>
+    <script type="text/javascript" language="javascript" src="js/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>        
+    <script type="text/javascript" language="javascript" src="js/DataTables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="js/functions.js" ></script>    
+    <script type="text/javascript" src="personas/Personas.js" ></script>
+    
+<!-- end:   script -->
+
+
+<!-- begin: edit_form_cab -->  
+<table border="0" class="form_table" id="edit_personas" style="width: auto">
+    <tr> <th colspan="2" class="form_title" > Actualizar Personas  </th> </tr> 
+<!-- end:   edit_form_cab -->
+
+
+<!-- begin: edit_form_data -->     
+<tr> <td class="form_label">Codigo Persona:</td> <td><input class="form_text PRI" type="text" id="form_cod_per"  readonly="readonly" required="required" size="10"  value="{value_of_cod_per}" >*</td>  </tr>
+
+<tr> <td class="form_label">Tipo Doc:</td> <td>
+<select class="form_select" id="form_tipo_doc"   >{value_of_tipo_doc}</select>
+</td>  </tr>
+<tr> <td class="form_label">CI/RUC:</td> <td><input class="form_text" type="text" id="form_ci_ruc" required="required"   size="30"  value="{value_of_ci_ruc}" >*</td>  </tr>
+<tr> <td class="form_label">Nombre:</td> <td><input class="form_text" type="text" id="form_nombre"  required="required"  size="60"  value="{value_of_nombre}" >*</td>  </tr>
+<tr>
+    <td class="form_label">Institucion:</td> <td>
+      <select class="form_db_select MUL" id="form_cod_inst"   >{value_of_cod_inst}</select>
+      <input type="text" size="20" id="buscar_inst" placeholder="Buscar Institucion" onchange="filtrarInstitucion()"> 
+    </td>
+</tr>
+
+<tr> <td class="form_label">Tel:</td> <td><input class="form_text" type="text" id="form_tel"  required="required"  size="30"  value="{value_of_tel}" >*</td>  </tr>
+<tr> <td class="form_label">Email:</td> <td><input class="form_text" type="text" id="form_email"    size="40"  value="{value_of_email}" ></td>  </tr>
+<tr> <td class="form_label">Fecha Nac:</td> <td><input class="form_date" type="date" id="form_fecha_nac"      value="{value_of_fecha_nac}" ></td>  </tr>
+
+<tr> <td class="form_label">Ciudad:</td> <td><input class="form_text" type="text" id="form_ciudad"    size="30"  value="{value_of_ciudad}" ></td>  </tr>
+<tr> <td class="form_label">Dir:</td> <td><textarea class="form_textarea" id="form_dir" cols="40" rows="3"   >{value_of_dir}</textarea></td>  </tr>
+<tr> <td class="form_label">Geoloc:</td> <td> <input class="form_text" type="text"  id="form_geoloc"  size="40"  value="{value_of_geoloc}"  > </td>  </tr>
+<tr> <td class="form_label">Ocupacion:</td> <td>
+<select class="form_db_select" id="form_ocupacion"   >{value_of_ocupacion}</select>
+</td>  </tr>
+<tr style="display: none"> <td class="form_label" >Tipo:</td> <td><input class="form_text" type="text" id="form_tipo"    size="16"  value="{value_of_tipo}" ></td>  </tr>
+<tr> <td class="form_label">Usuario:</td> <td><input class="form_text" type="text" id="form_usuario"  readonly="readonly"  size="30"  value="{value_of_usuario}" ></td>  </tr>
+<tr> <td class="form_label">Fecha Reg:</td> <td><input class="form_text" type="text" id="form_fecha_reg"  readonly="readonly"  size="20"  value="{value_of_fecha_reg}" ></td>  </tr>
+<tr> <td class="form_label">Estado:</td> <td>
+<select class="form_select" id="form_estado"   >{value_of_estado}</select>
+</td>  </tr>
+<!-- end:   edit_form_data -->
+
+
+<!-- begin: edit_form_foot -->     
+<tr><td colspan="2" style="text-align: center" id="msg_personas" ></td></tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <input type="button" value="Cancelar" onclick="closeForm()">
+            <input type="button" value="Modificar Datos" onclick=updateData("edit_personas") id="personas_update_button">
+            <input type="button" value=" Cerrar " onclick="closeForm()" id="personas_close_button" style="display:none">
+        </td>
+    </tr>
+</table> 
+<!-- end:   edit_form_foot -->
+
+
+
+
+
+
+<!-- begin: add_form_cab -->  
+<table border="0" class="form_table" id="add_personas">
+    <tr> <th colspan="2" class="form_title" > (Nuevo Registro) Personas  </th> </tr> 
+<!-- end:   add_form_cab -->
+
+
+<!-- begin: add_form_data -->     
+
+<tr> <td class="form_label">Tipo Doc:</td> <td>
+<select class="form_select" id="form_tipo_doc"  >
+<option value="CI">CI</option>
+<option value="RUC">RUC</option>
+<option value="Otro">Otro</option>
+</select>
+        
+</td>  </tr>
+<tr> <td class="form_label">CI/RUC:</td> <td><input class="form_text" type="text" id="form_ci_ruc"  required="required"    size="30"  value="" >*</td>  </tr>
+<tr> <td class="form_label">Nombre:</td> <td><input class="form_text" type="text" id="form_nombre"  required="required"    size="60"  value="" >*</td>  </tr>
+<tr> 
+    <td class="form_label">Insitucion:</td> <td>
+     <select class="form_db_select MUL" id="form_cod_inst" required="required" >{value_of_cod_inst}</select>
+        <input type="text" size="20" id="buscar_inst" placeholder="Buscar Institucion" onchange="filtrarInstitucion()"> 
+    </td>  
+</tr>
+<tr> <td class="form_label">Tel:</td> <td><input class="form_text" type="text" id="form_tel"  required="required"    size="30"  value="" >*</td>  </tr>
+<tr> <td class="form_label">Email:</td> <td><input class="form_text" type="text" id="form_email"      size="40"  value="" ></td>  </tr>
+<tr> <td class="form_label">Fecha Nac:</td> <td><input class="form_date" type="date" id="form_fecha_nac"        value="" ></td>  </tr>
+
+<tr> <td class="form_label">Ciudad:</td> <td><input class="form_text" type="text" id="form_ciudad"      size="30"  value="" ></td>  </tr>
+<tr> <td class="form_label">Dir:</td> <td><textarea class="form_textarea" id="form_dir" cols="40" rows="3"   ></textarea></td>  </tr>
+<tr> <td class="form_label">Geoloc:</td> <td><input class="form_text" type="text"  id="form_geoloc"  size="40"   > </td>  </tr>
+<tr> <td class="form_label">Ocupacion:</td> <td>
+<select class="form_db_select" id="form_ocupacion"  >{value_of_ocupacion}</select>
+</td>  </tr>
+<tr> <td class="form_label" style="display: none">Tipo:</td> <td><input class="form_text" type="text" id="form_tipo" style="display: none"     size="16"  value="" ></td>  </tr>
+<tr> <td class="form_label" style="display: none">Usuario:</td> <td><input class="form_text" type="text" id="form_usuario"  readonly="readonly"  style="display: none"   size="30"  value="" ></td>  </tr>
+<tr> <td class="form_label" style="display: none">Fecha Reg:</td> <td><input class="form_text" type="text" id="form_fecha_reg" readonly="readonly" style="display: none"     size="20"  value="" ></td>  </tr>
+<tr>
+    <td class="form_label">Estado:</td> <td>
+    <select class="form_select" id="form_estado"  >
+       <option value="Activo">Activo</option>
+       <option value="Inactivo">Inactivo</option>
+    </select>
+</td>  
+</tr>
+<!-- end:   add_form_data -->
+
+
+<!-- begin: add_form_foot -->     
+<tr><td colspan="2" style="text-align: center" id="msg_personas" ></td></tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <input type="button" value="Cancelar" onclick="closeForm()">
+            <input type="button" value=" Grabar " onclick=addData("add_personas") id="personas_save_button">
+            <input type="button" value=" Cerrar " onclick="closeForm()" id="personas_close_button" style="display:none">
+        </td>
+    </tr>
+</table> 
+<!-- end:   add_form_foot -->
+
+
+<!-- begin: no_result -->     
+<div style="text-align: center;margin: 2cm auto"> Ningun registro para Personas <button type="button" id="add_button_proveedores" onclick="addUI()">Agregar un nuevo registro para (Personas)</button></div> 
+<!-- end:   no_result -->

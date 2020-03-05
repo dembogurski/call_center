@@ -23,8 +23,14 @@
          },
          "Registro de Empresas":{            
             "id":"2.3",
-            "help":"Registro de Empresas",
+            "help":"Registro de Empresas Propias",
             "url":"sucursales/Sucursales.class.php",
+            "function":"genericLoad"
+         }, 
+         "Registro de Instituciones":{            
+            "id":"2.4",
+            "help":"Registro de Instituciones",
+            "url":"instituciones/Instituciones.class.php",
             "function":"genericLoad"
          } 
     },  

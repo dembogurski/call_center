@@ -1,0 +1,164 @@
+<!-- begin: headers -->   
+    <head>  
+        <link rel="stylesheet" type="text/css" href="entidades/Entidades.css?_=0" />      
+        <link rel="stylesheet" type="text/css" href="js/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="js/DataTables/Responsive-2.2.2/css/responsive.dataTables.min.css">         
+        <link rel="stylesheet" type="text/css" href="js/DataTables/Responsive-2.2.2/css/responsive.bootstrap4.min.css"/>         
+    </head>  
+<!-- end:   headers -->
+
+<!-- begin: insert_edit_form -->     
+<div class="form" id="form_entidades"></div>
+<!-- end:   insert_edit_form -->
+
+<!-- begin: data_header -->
+<div class="list_container">      
+    <table id="entidades"  border="1" class="display responsive nowrap db_tablename"  >
+        <thead>
+            <tr>
+                <th>Cod Ent</th><th>Tipo Doc</th><th>RUC/Doc</th><th>Nombre</th><th>Tel</th> <th>Estado</th><th></th>
+            </tr>
+        </thead>
+
+<!-- end:   data_header -->
+
+
+<!-- begin: data_line -->     
+    <tr> <td>{cod_ent}</td> <td>{tipo_doc}</td> <td>{ci_ruc}</td> <td>{nombre}</td> <td>{tel}</td>  <td>{estado}</td> <td class="itemc"><img class="edit" src="img/edit.png" onclick=editUI("{cod_ent}") ></td>  </tr>
+<!-- end:   data_line -->
+
+
+<!-- begin: data_foot -->     
+
+        <tfoot>
+             
+        </tfoot>
+    </table> 
+</div>
+ 
+<!-- end:   data_foot -->
+
+<!-- begin: script -->      
+    <script type="text/javascript" src="js/jquery-3.3.1.js" ></script>
+    <script type="text/javascript" language="javascript" src="js/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>        
+    <script type="text/javascript" language="javascript" src="js/DataTables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="js/functions.js" ></script>    
+    <script type="text/javascript" src="entidades/Entidades.js" ></script>
+    
+<!-- end:   script -->
+
+
+<!-- begin: edit_form_cab -->  
+<table border="0" class="form_table" id="edit_entidades" style="width: auto">
+    <tr> <th colspan="2" class="form_title" > Actualizar Entidades  </th> </tr> 
+<!-- end:   edit_form_cab -->
+
+
+<!-- begin: edit_form_data -->     
+<tr> <td class="form_label">Cod Ent:</td> <td><input class="form_number PRI" type="number" id="form_cod_ent"  readonly="readonly" required="required" size="10" onkeypress="return onlyNumbers(event)" value="{value_of_cod_ent}" >*</td>  </tr>
+<tr> <td class="form_label">Tipo Doc:</td> <td>
+<select class="form_select" id="form_tipo_doc"   >{value_of_tipo_doc}</select>
+</td>  </tr>
+<tr> <td class="form_label">RUC/Doc:</td> <td><input class="form_text" type="text" id="form_ci_ruc"    size="30"  value="{value_of_ci_ruc}" ></td>  </tr>
+<tr> <td class="form_label">Nombre:</td> <td><input class="form_text" type="text" id="form_nombre"    size="60"  value="{value_of_nombre}" ></td>  </tr>
+<tr> <td class="form_label">Tel:</td> <td><input class="form_text" type="text" id="form_tel"    size="30"  value="{value_of_tel}" ></td>  </tr>
+<tr> <td class="form_label">Email:</td> <td><input class="form_text" type="text" id="form_email"    size="40"  value="{value_of_email}" ></td>  </tr>
+<tr> <td class="form_label">Codigo Pais:</td> <td>
+<select class="form_db_select MUL" id="form_codigo_pais"   >{value_of_codigo_pais}</select>
+</td>  </tr>
+<tr> <td class="form_label">Departamento:</td> <td>
+<select class="form_db_select" id="form_cod_depart"  onchange="buscarDistrito()" >{value_of_cod_depart}</select>
+</td>  </tr>
+<tr> <td class="form_label">Dist Num:</td> <td>
+<select class="form_db_select" id="form_dist_num"   >{value_of_dist_num}</select>
+</td>  </tr>
+<tr> <td class="form_label">Ciudad:</td> <td><input class="form_text" type="text" id="form_ciudad"    size="30"  value="{value_of_ciudad}" ></td>  </tr>
+<tr> <td class="form_label">Dir:</td> <td><textarea class="form_textarea" id="form_dir" cols="40" rows="3"   >{value_of_dir}</textarea></td>  </tr>
+<tr> <td class="form_label">Tipo:</td> <td>
+<select class="form_select" id="form_tipo"   >{value_of_tipo}</select>
+</td>  </tr>
+<tr> <td class="form_label">Estado:</td> <td>
+<select class="form_select" id="form_estado"   >{value_of_estado}</select>
+</td>  </tr>
+
+<!-- end:   edit_form_data -->
+
+
+<!-- begin: edit_form_foot -->     
+<tr><td colspan="2" style="text-align: center" id="msg_entidades" ></td></tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <input type="button" value="Cancelar" onclick="closeForm()">
+            <input type="button" value="Modificar Datos" onclick=updateData("edit_entidades") id="entidades_update_button">
+            <input type="button" value=" Cerrar " onclick="closeForm()" id="entidades_close_button" style="display:none">
+        </td>
+    </tr>
+</table> 
+<!-- end:   edit_form_foot -->
+
+
+
+
+
+
+<!-- begin: add_form_cab -->  
+<table border="0" class="form_table" id="add_entidades">
+    <tr> <th colspan="2" class="form_title" > (Nuevo Registro) Entidades  </th> </tr> 
+<!-- end:   add_form_cab -->
+
+
+<!-- begin: add_form_data -->     
+<tr> <td class="form_label">Tipo Doc:</td> <td>
+<select class="form_select" id="form_tipo_doc"  >
+<option value="RUC">RUC</option>
+<option value="CI">CI</option>
+<option value="Otro">Otro</option>
+</select>
+</td>  </tr>
+<tr> <td class="form_label">RUC/Doc:</td> <td><input class="form_text" type="text" id="form_ci_ruc"      size="30"  value="" ></td>  </tr>
+<tr> <td class="form_label">Nombre:</td> <td><input class="form_text" type="text" id="form_nombre"      size="60"  value="" ></td>  </tr>
+<tr> <td class="form_label">Tel:</td> <td><input class="form_text" type="text" id="form_tel"      size="30"  value="" ></td>  </tr>
+<tr> <td class="form_label">Email:</td> <td><input class="form_text" type="text" id="form_email"      size="40"  value="" ></td>  </tr>
+<tr> <td class="form_label">Codigo Pais:</td> <td>
+<select class="form_db_select MUL" id="form_codigo_pais"  >{value_of_codigo_pais}</select>
+</td>  </tr>
+<tr> <td class="form_label">Departamento:</td> <td>
+        <select class="form_db_select" id="form_cod_depart" onchange="buscarDistrito()"  >{value_of_cod_depart}</select>
+</td>  </tr>
+<tr> <td class="form_label">Dist Num:</td> <td>
+<select class="form_db_select" id="form_dist_num"  >{value_of_dist_num}</select>
+</td>  </tr>
+<tr> <td class="form_label">Ciudad:</td> <td><input class="form_text" type="text" id="form_ciudad"      size="30"  value="" ></td>  </tr>
+<tr> <td class="form_label">Dir:</td> <td><textarea class="form_textarea" id="form_dir" cols="40" rows="3"   ></textarea></td>  </tr>
+<tr> <td class="form_label">Tipo:</td> <td>
+<select class="form_select" id="form_tipo"  >
+<option value="C1">V1</option>
+<option value="C2">V2</option>
+</select>
+</td>  </tr>
+<tr> <td class="form_label">Estado:</td> <td>
+<select class="form_select" id="form_estado"  >
+<option value="Activo">Activo</option>
+<option value="Inactivo">Inactivo</option>
+</select>
+</td>  </tr>
+
+<!-- end:   add_form_data -->
+
+
+<!-- begin: add_form_foot -->     
+<tr><td colspan="2" style="text-align: center" id="msg_entidades" ></td></tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <input type="button" value="Cancelar" onclick="closeForm()">
+            <input type="button" value=" Grabar " onclick=addData("add_entidades") id="entidades_save_button">
+            <input type="button" value=" Cerrar " onclick="closeForm()" id="entidades_close_button" style="display:none">
+        </td>
+    </tr>
+</table> 
+<!-- end:   add_form_foot -->
+
+
+<!-- begin: no_result -->     
+<div style="text-align: center;margin: 2cm auto"> Ningun registro para Entidades <button type="button" id="add_button_proveedores" onclick="addUI()">Agregar un nuevo registro para (Entidades)</button></div> 
+<!-- end:   no_result -->

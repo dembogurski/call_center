@@ -32,17 +32,21 @@ class CallCenter {
 
     function main() {
 
-        $t = new Y_Template("CallCenter.html");
- 
+        $t = new Y_Template("CallCenter.html"); 
 
         $t->Show("headers");
-        $t->Show("body");
-
+        $t->Show("body"); 
          
-    }
-
+    } 
 }
- 
+ function buscarInstituciones(){
+       $criterio = $_POST['criterio'];    
+       $f = new Functions();
+       echo json_encode($f->getResultArray("SELECT cod_inst,i.nombre, di.nombre AS distrito, d.nombre_depar AS departamento
+       FROM instituciones i, distritos di, departamentos d WHERE di.cod_depart = d.cod_depart AND di.dist_num = i.dist_num
+       AND i.cod_depart = d.cod_depart 
+       AND i.nombre LIKE '%$criterio%'"));
+ }
 
  
 

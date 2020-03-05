@@ -46,12 +46,12 @@ body{
 	border-collapse:collapse
 }
 
-#sucursales tr th {
+#entidades tr th {
     height: 10px;
     font-size: 14px;
 } 
 
-#sucursales tr td {
+#entidades tr td {
     height: 10px;
 	font-size: 14px;
 }

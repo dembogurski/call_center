@@ -38,7 +38,8 @@ body{
 }
 
 .list_container { 
-   margin: 30px 15px; 
+   margin: 0 auto;
+   max-width: 1280px
 }
 
 .db_tablename{
@@ -46,12 +47,12 @@ body{
 	border-collapse:collapse
 }
 
-#sucursales tr th {
+#personas tr th {
     height: 10px;
     font-size: 14px;
 } 
 
-#sucursales tr td {
+#personas tr td {
     height: 10px;
 	font-size: 14px;
 }
@@ -107,3 +108,9 @@ input[type=number] {
 .required{
     border:solid red 1px;
 } 
+.list_container { 
+   margin: 30px 15px; 
+}
+select {
+    height: 22px;
+}

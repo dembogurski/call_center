@@ -227,7 +227,7 @@ class UserManager
         $ultimos8= substr($cadena_encriptada, -8);
         
         $db = new My();
-        $query = "INSERT INTO usuarios (usuario, passw, hash, fecha_nac, fecha_cont, limite_sesion, suc, estado) values ('$user', '$clave', '$ultimos8','0000-00-00','0000-00-00', '30', '00','Activo');";
+        $query = "INSERT INTO usuarios (usuario, passw, hash, fecha_nac, fecha_cont, limite_sesion, suc, estado) values ('$user', '$clave', '$ultimos8','0000-00-00','0000-00-00', '3600', '01','Activo');";
         $db->Query($query);
         if ($db->Errno == 0) {
             echo'{"exito":true}';
