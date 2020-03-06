@@ -9,7 +9,7 @@
 }
 
 .filter_label{
-    width: 50%
+    width: 20%
 }
 .select_result{
     width: 100%;
@@ -18,3 +18,22 @@
 textarea{
     width: 100%
 }
+
+.ul_personas {
+    background: beige;
+    border: 1px solid  gray;
+    padding-left: 20px;
+}
+.ul_personas li{
+    height: 20px;
+    font-family: cambria;
+    font-size: 16px;
+    padding-right: 4px;
+}
+.ul_personas li:hover {
+    background-color: lightskyblue;
+    cursor: pointer;
+}
+#lista_personas{
+    margin-left: 7px;
+} 
