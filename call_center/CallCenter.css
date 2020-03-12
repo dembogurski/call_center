@@ -37,3 +37,39 @@ textarea{
 #lista_personas{
     margin-left: 7px;
 } 
+
+.Bajo{
+    background-color: yellow;
+}
+.Medio{
+    background-color: orange
+}
+.Urgente{
+    background-color: orangered
+}
+.Trivial{
+    background-color: lightskyblue
+}
+.com_row {
+    background-color: white; 
+}
+.com_row td{ 
+    font-family: calibri;
+    font-size: 12px
+}
+.modo{
+    vertical-align: middle;
+    border: solid gray 1px;
+    text-align: center;padding: 6px;
+    cursor: pointer
+}
+.selected{
+    background-color: lightskyblue
+}
+.search{
+    background-color: #faf2cc;
+}
+.edit_img{
+    cursor:pointer;
+    display:none
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- begin: header noeval -->
+      <link rel="stylesheet" type="text/css" href="../css/reportes.css" /> 
+<style>
+.Bajo{
+    background-color: yellow;
+}
+.Medio{
+    background-color: orange
+}
+.Urgente{
+    background-color: orangered
+}
+.Trivial{
+    background-color: lightskyblue
+}
+      </style>   
+<!-- end:   header -->
+
+
+<!-- begin: head -->
+
+<input type="hidden" id="user" value="{user}">
+<table class="report_cab" border="1" cellspacing="0" cellpadding="0"> 
+    <tr>
+        <th style="width: 15%" ><img src="../img/call_center.png"></th> 
+        <th style="width: 70%;">Reporte de Cumplea&ntilde;os</th>
+        <th style="font-size: 8px;width: 15%" >{user}-{time}</th> 
+    </tr> 
+    <tr><td></td><td style="text-align: center;font-size: 12px"> 
+           <b>Periodo:</b>  {desde} &#8596; {hasta}
+        </td></tr>
+     
+</table>
+<table border="1" cellspacing="0" cellpadding="0" class="report_header">
+     
+    <tr>
+        <th>Nombre</th>
+        <th>Ocupacion</th>
+        <th>Telefono</th>
+        <th>Cumplea&ntilde;os</th>
+        <th>Institucion</th>
+        <th>Empresa</th>
+        <th>Entidad</th> 
+        <th></th>
+    </tr>
+     
+<!-- end:   head -->
+
+
+<!-- begin: data -->
+<tr>
+    <td class="item"  >{nombre}</td>
+    <td class="item"  >{ocupacion}</td>
+    <td class="item"  >{tel}</td> 
+    <td class="itemc"  >{fecha_nac}</td>
+    <td class="item"  >{institucion}</td>
+    <td class="item"  >{empresa}</td>
+    <td class="item">{entidad}</td> 
+    <td>&nbsp;&nbsp;</td>
+</tr>  
+  
+<!-- end:   data -->
+ 
+
+<!-- begin: foot -->
+ 
+</table>    
+ 
+<!-- end:   foot  -->
+
+ 

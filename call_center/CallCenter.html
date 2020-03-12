@@ -9,23 +9,23 @@
 <!-- begin: body -->
 
 <div class="filters">
-    <table border="0" style="margin: 10 auto;width: 650px;border:solid gray 1px">
+    <table border="0" style="margin: 10px 150px;width: 650px;border:solid gray 1px">
         <tr><th colspan="3" class="titulo">Filtros</th> </tr>
         <tr>
-            <td class="filter_label"><input type="text" id="buscar_institucion" size="30" placeholder="Buscar Instituci&oacute;n"></td>
+            <td class="filter_label"><input class="call_input" type="text" id="buscar_institucion" size="30" placeholder="Buscar Instituci&oacute;n"></td>
             <td style="width: 70%">
-                <select class="select_result" id="instituciones"></select> 
+                <select class="select_result buscar call_input" id="instituciones"></select> 
             </td>            
             <td rowspan="2"  style="width: 0%;vertical-align: top">
-                <div id="lista_personas" style="border: 0px solid red;position: absolute;width: auto">
+                <div id="lista_personas" class="call_input" style="border: 0px solid red;position: absolute;width: auto">
                     
                 </div>
             </td>
         </tr>
         <tr>
-            <td class="filter_label"><input type="text" id="buscar_personas" size="30" placeholder="Buscar Personas"></td>
+            <td class="filter_label"><input type="text" class="call_input" id="buscar_personas" size="30" placeholder="Buscar Personas"></td>
             <td>
-                <select class="select_result" id="personas"></select> 
+                <select class="select_result buscar call_input" id="personas"></select> 
             </td>            
         </tr>
     </table>    
@@ -34,43 +34,72 @@
 
 
 <div class="area_carga">
-    <table border="0" style="margin: 0 auto;width:650px;border:solid gray 1px">
-        <tr>
+    <table border="0" style="margin: 1px 150px;width:650px;border:solid gray 1px">
+        <tr> 
             <td><img src="img/phone_call.png" width="36" title="Reclamo u observaciones de quien llama o a quien se le llama" style="margin-right: 20px;margin-bottom:-10px">Obs:   </td>
-            <td colspan="2"><textarea id="obs_per" rows="3" cols="50"></textarea></td>
+            <td colspan="2"><textarea id="obs_per" class="buscar call_input" rows="3" cols="50"></textarea></td>
+            <td class="modo selected" id="registrar" onclick="cambiarModo(this)" >Registrar</td>
         </tr>
         <tr>
             <td><img src="img/call_center.png" title="Respuesta que dio la operadora o una posible solucion" width="32" style="margin-right: 20px;margin-bottom:-10px">Respuesta:</td>
-            <td  colspan="2"><textarea id="obs_user" rows="3" cols="50"></textarea></td>
+            <td  colspan="2"><textarea id="obs_user" class="call_input" rows="3" cols="50"></textarea></td>
+            <td  class="modo" id="editar" onclick="cambiarModo(this)">Editar</td>
         </tr>
         <tr>
             <td>Nivel Urgencia:</td>
             <td>
-                <select id="nivel" style="width: 100px;height: 22px">
-                    <option value="Bajo" style="background-color: yellow">Bajo</option>
-                    <option value="Medio" style="background-color: orange">Medio</option>                    
+                <select id="nivel" class="buscar" style="width: 100px;height: 22px">
+                    <option value="Bajo"    style="background-color: yellow">Bajo</option>
+                    <option value="Medio"   style="background-color: orange">Medio</option>                    
                     <option value="Urgente" style="background-color: orangered">Urgente</option>
                     <option value="Trivial" style="background-color: lightskyblue">Trivial</option>
                 </select>
             </td>
-            <td rowspan="2" style="vertical-align: middle;width:50%">
-                <input type="button" value="Registrar" onclick="registrar()">  
+            <td rowspan="2" style="vertical-align: middle;width:50%;text-align: center">
+                <input type="button" id="aceptar" value="Registrar" ">  
               </td>
         </tr>
         <tr>
             <td>Estado:</td> 
             <td>
-                <select id="estado" style="width: 100px;height: 22px">                     
+                <select id="estado" class="buscar" style="width: 100px;height: 22px">                     
                     <option value="Pendiente">Pendiente</option>
                     <option value="En Proceso">En Proceso</option>  
-                    <option value="Pendiente">Cerrado</option>
+                    <option value="Cerrado">Cerrado</option>
                 </select>
             </td>
         </tr>
     </table>
 </div>
 <div style="margin: 10px auto;text-align: center" id="msg"></div>
-<div style="margin: 10px auto;text-align: center" id="calls">
-    Calls
+
+<div style="margin: 10px auto;text-align: center" id="calls_filters">
+    <label>Mostrar:</label>
+    <select id="limite" class="buscar" >
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="500">500</option>
+    </select>
+    <label>Desde:</label> <input type="date" id="desde" class="buscar" value="{hoy}">
+    <label>Hasta:</label> <input type="date" id="hasta" class="buscar" value="{hoy}">
+     
+    <input type="button" value=" Filtrar " onclick="filtrarComunicaciones()">
+</div>
+<div style="margin: 10px auto;text-align: center" >
+    <table id="calls" style="border-collapse: collapse;margin: 10px auto;min-width: 70%;width: auto" border="1" >
+        <tr class="titulo">
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Persona</th>
+            <th>Institucion</th>
+            <th>Entidad</th>
+            <th>Obs. Per.</th>
+            <th>Nivel</th>
+            <th>Estado</th> 
+            <th>*</th> 
+        </tr>
+    </table>
 </div>
 <!-- end:   body -->
