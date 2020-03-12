@@ -65,7 +65,7 @@ class Cumpleanios {
         $sql = "SELECT  p.nombre,ocupacion,p.tel,DATE_FORMAT(p.fecha_nac,'%d %M') AS fecha_nac,  i.nombre AS institucion , s.nombre AS empresa , e.nombre AS entidad
         FROM personas p, instituciones i, sucursales s, entidades e 
         WHERE p.cod_inst = i.cod_inst AND i.suc = s.suc AND i.cod_ent = e.cod_ent AND 
-        DAYOFYEAR(p.fecha_nac) BETWEEN DAYOFYEAR('$fdesde') AND  DAYOFYEAR('$fhasta') ";
+        DAYOFYEAR(p.fecha_nac) BETWEEN DAYOFYEAR('$fdesde') AND  DAYOFYEAR('$fhasta') order by  p.fecha_nac asc, p.nombre asc ";
  
          //echo $sql;
         
