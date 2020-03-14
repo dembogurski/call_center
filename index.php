@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" href="img/call_center.png" />
     <?php
     if(!isset($_REQUEST['relogin'])){
-        echo '<script type="text/javascript" src="js/jquery-2.1.3.min.js" > </script>';        
+        echo '<script type="text/javascript" src="js/jquery-3.3.1.min.js" > </script>';        
     }
     ?>
     <script type="text/javascript" src="js/login.js?_=000000000000000111111" > </script>

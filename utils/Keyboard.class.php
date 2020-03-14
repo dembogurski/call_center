@@ -6,7 +6,7 @@
  * @date 14/09/2016
  */
 
-require_once($_SERVER['DOCUMENT_ROOT']."/sistema/Y_Template.class.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/call_center/Y_Template.class.php");
 
 
 class Keyboard {
@@ -20,8 +20,8 @@ class Keyboard {
            $protocol = "https";   
        } 
        
-       $path = "$protocol://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/sistema";   
-       chdir($_SERVER['DOCUMENT_ROOT']."/sistema");        
+       $path = "$protocol://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/call_center";   
+       chdir($_SERVER['DOCUMENT_ROOT']."/call_center");        
        $k = new Y_Template("utils/Keyboard.html");  
        $k->Set("path",$path);                
        $k->Show("headerk");
